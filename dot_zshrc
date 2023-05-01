@@ -23,6 +23,8 @@ export EDITOR=nvim
 # node
 export PATH="$PATH:/home/alex/.npm/bin"
 
+# Rust
+source "$HOME/.cargo/env"
 
 # Online Quotes
 ALPHAVANTAGE_API_KEY=FAY9CIAMO040C010
