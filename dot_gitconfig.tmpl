@@ -1,0 +1,12 @@
+[core]
+	editor = vim
+	{{- if eq .chezmoi.os "windows" }}
+	autocrlf = true
+	{{- end }}
+	{{- if eq .chezmoi.os "linux" }}
+	autocrlf = input
+	{{- end }}
+
+[user]
+	name = Alexander Rampp
+	email = {{ .email }}

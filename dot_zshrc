@@ -1,0 +1,45 @@
+# Use powerline
+USE_POWERLINE="true"
+# Source manjaro-zsh-configuration
+if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
+  source /usr/share/zsh/manjaro-zsh-config
+fi
+# Use manjaro zsh prompt
+if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
+  source /usr/share/zsh/manjaro-zsh-prompt
+fi
+
+# DOTNET - Required
+export PATH="$PATH:/home/alex/.dotnet/tools"
+# DOTNET - Optional
+export DOTNET_CLI_TELEMETRY_OPTOUT=0
+export ASPNETCORE_ENVIRONMENT=Development
+
+alias ll="ls -lh"
+alias vi=nvim
+alias vim=nvim
+export EDITOR=nvim
+
+# node
+export PATH="$PATH:/home/alex/.npm/bin"
+
+
+# Online Quotes
+ALPHAVANTAGE_API_KEY=FAY9CIAMO040C010
+
+PATH="/home/alex/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/alex/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/alex/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/alex/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/alex/perl5"; export PERL_MM_OPT;
+
+# Update Pacman Mirrors
+# depends on rate-mirrors, see https://github.com/westandskif/rate-mirrors
+alias ua-drop-caches='sudo paccache -rk3; yay -Sc --aur --noconfirm'
+alias ua-update-all='export TMPFILE="$(mktemp)"; \
+    sudo true; \
+    rate-mirrors --save=$TMPFILE manjaro --max-delay=21600 \
+      && sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist-backup \
+      && sudo mv $TMPFILE /etc/pacman.d/mirrorlist \
+      && ua-drop-caches \
+      && yay -Syyu --noconfirm'
