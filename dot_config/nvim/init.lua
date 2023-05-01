@@ -17,6 +17,7 @@ vim.opt.cc="80"                      -- set an 80 column border
 vim.opt.cursorline=true              -- highlight current cursorline
 vim.opt.ttyfast=true                 -- Speed up scrolling in Vim
 
+vim.opt.spellsuggest='best,9'
 
 require("plugins").setup()
 require("config.nvim-tree").setup()
