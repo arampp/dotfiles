@@ -15,10 +15,14 @@ export PATH="$PATH:/home/alex/.dotnet/tools"
 export DOTNET_CLI_TELEMETRY_OPTOUT=0
 export ASPNETCORE_ENVIRONMENT=Development
 
-alias ll="ls -lh"
 alias vi=nvim
 alias vim=nvim
 export EDITOR=nvim
+
+alias l='exa'
+alias la='exa -a'
+alias ll='exa -lah'
+alias ls='exa --color=auto'
 
 # node
 export PATH="$PATH:/home/alex/.npm/bin"
